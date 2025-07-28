@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from decouple import config, Csv
+from datetime import timedelta
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'reservation',
+    "phonenumber_field",
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,20 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SIMPLE_JWT = {
+    # Tiempo de vida corto para el token de acceso
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
+    # Tiempo de vida más largo para el token de refresco
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+    # Genera un nuevo token de refresco cada vez que se usa
+    'ROTATE_REFRESH_TOKENS': True,
+    # Añade tokens de refresco usados a una lista negra
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ALGORITHM': 'HS256',                           # Algoritmo de firma seguro
+    'SIGNING_KEY': config('SIGNING_KEY'),           # Clave secreta fuerte
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
 
 ROOT_URLCONF = 'core.urls'
 
