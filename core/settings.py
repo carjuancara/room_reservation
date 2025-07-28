@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'reservation',
     "phonenumber_field",
     "rest_framework_simplejwt",
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
 
 SIMPLE_JWT = {
     # Tiempo de vida corto para el token de acceso
