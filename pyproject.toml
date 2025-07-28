@@ -1,0 +1,22 @@
+[project]
+name = "room-reservation"
+version = "0.1.0"
+description = "Sistema de reservaciones de habitaciones"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django-phonenumber-field>=8.0.0",
+    "django>=5.1.5",
+    "djangorestframework>=3.15.2",
+    "pytest>=8.3.4",
+    "rest-framework-simplejwt>=0.0.2",
+    "phonenumbers>=8.13.53",
+    "psycopg2>=2.9.10",
+    "django-decouple>=2.1",
+    "pytest-django>=4.9.0",
+    "pytest-cov>=6.0.0",
+    "drf-spectacular>=0.28.0",
+    "djangorestframework-simplejwt>=5.5.0",
+    "dj-database-url>=3.0.1",
+    "python-decouple>=3.8",
+]
