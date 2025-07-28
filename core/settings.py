@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'reservations',
     "phonenumber_field",
-    "rest_framework_simplejwt",
     'drf_spectacular',
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
 ]
 
 MIDDLEWARE = [
